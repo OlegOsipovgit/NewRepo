@@ -15,26 +15,51 @@ namespace UDP
 {
     public partial class Form1 : Form
     {
-        int enter = 0;
-        public void method()
+          
+        public Form1()
+        {
+            InitializeComponent();           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            Client.GetFileDetails();
+            MessageBox.Show("----Информация о файле получена!" + "Получен файл типа ." + Client.fileDet.FILETYPE +
+                    " имеющий размер " + Client.fileDet.FILESIZE.ToString() + " байт");
+            MessageBox.Show("-------Открытие файла------");
+            Client.ReceiveFile();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Введите IP-адрес адресата в поле и нажмите enter");
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
-                MessageBox.Show("Введите удаленный IP-адрес в поле и нажмите enter");
-                if (enter!=1) {
-                    System.Threading.Thread.Sleep(50000);
-                }
-                while (enter != 1) { continue; }
-                Client.remoteIPAddress = IPAddress.Parse(textBox1.Text.ToString());//"127.0.0.1");
-                Client.endPoint = new IPEndPoint(Client.remoteIPAddress, Client.remotePort);
-                textBox1.Clear();
-                enter = 0;
+                if (e.KeyCode == Keys.Enter)
+                {
+                    Client.remoteIPAddress = IPAddress.Parse(textBox1.Text.ToString());
+                    Client.endPoint = new IPEndPoint(Client.remoteIPAddress, Client.remotePort);
 
-                MessageBox.Show("Введите путь к файлу и его имя в поле и нажмите enter");
-                while (enter != 1) { continue; }
+                    MessageBox.Show("Введите путь к файлу и его имя в поле и нажмите enter");
+                }
+
+            }
+            catch (Exception eR)
+            {
+                Console.WriteLine(eR.ToString());
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
                 Client.fs = new FileStream(textBox1.Text.ToString(), FileMode.Open, FileAccess.Read);
-                textBox1.Clear();
-                enter = 0;
 
                 if (Client.fs.Length > 8192)
                 {
@@ -53,41 +78,16 @@ namespace UDP
                 MessageBox.Show("Файл успешно отправлен.");
                 Console.ReadLine();
             }
-            catch (Exception eR)
-            {
-                Console.WriteLine(eR.ToString());
-            }
-
         }
-        public Form1()
+
+        private void label2_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            textBox1.TextChanged += textBox1_TextChanged;
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            
-            Client.GetFileDetails();
-            MessageBox.Show("----Информация о файле получена!" + "Получен файл типа ." + Client.fileDet.FILETYPE +
-                    " имеющий размер " + Client.fileDet.FILESIZE.ToString() + " байт");
-            MessageBox.Show("-------Открытие файла------");
-            Client.ReceiveFile();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            method();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {                                 
-           
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            enter = 1;
         }
     }
 }
