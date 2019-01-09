@@ -15,25 +15,25 @@ namespace UDP
 {
     public partial class Form1 : Form
     {
-        Client client = new Client();
+          
         public Form1()
         {
             InitializeComponent();           
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             
+            Client.GetFileDetails();
             MessageBox.Show("----Информация о файле получена!" + "Получен файл типа ." + Client.fileDet.FILETYPE +
                     " имеющий размер " + Client.fileDet.FILESIZE.ToString() + " байт");
             MessageBox.Show("-------Открытие файла------");
-         }
+            Client.ReceiveFile();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Введите IP-адрес адресата в поле и нажмите enter");
-            
-            client.ReceiveFile();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -42,8 +42,8 @@ namespace UDP
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    client.remoteIPAddress = IPAddress.Parse(textBox1.Text.ToString());
-                    client.endPoint = new IPEndPoint(client.remoteIPAddress, Client.remotePort);
+                    Client.remoteIPAddress = IPAddress.Parse(textBox1.Text.ToString());
+                    Client.endPoint = new IPEndPoint(Client.remoteIPAddress, Client.remotePort);
 
                     MessageBox.Show("Введите путь к файлу и его имя в поле и нажмите enter");
                 }
@@ -69,12 +69,12 @@ namespace UDP
                     return;
                 }
 
-                client.SendFileInfo();
+                Client.SendFileInfo();
                 MessageBox.Show("Отправка файла размером " + Client.fs1.Length + " байт");
 
                 Thread.Sleep(2000);
 
-                client.SendFile();
+                Client.SendFile();
                 MessageBox.Show("Файл успешно отправлен.");
                 Console.ReadLine();
             }

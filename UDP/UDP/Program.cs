@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace UDP
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
-             Application.Run(new Form1());
+         Application.Run(new Form1());
         }
     }
 }

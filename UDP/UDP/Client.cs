@@ -11,10 +11,6 @@ namespace UDP
 {
     public class Client
     {
-        public Client()
-        {
-
-        }
         [Serializable]
         public class ReceiveFileDetails
         {
@@ -32,7 +28,7 @@ namespace UDP
         public static Byte[] receiveBytes = new Byte[0];
 
 
-        public void GetFileDetails()
+        public static void GetFileDetails()
         {
             try
             {
@@ -54,7 +50,7 @@ namespace UDP
         }
 
 
-        public void ReceiveFile()
+        public static void ReceiveFile()
         {
             try
             {
@@ -84,14 +80,14 @@ namespace UDP
 
         public static SendFileDetails fileDet1 = new SendFileDetails();
 
-        public IPAddress remoteIPAddress;
+        public static IPAddress remoteIPAddress;
         public const int remotePort = 5002;
         public static UdpClient sender = new UdpClient();
-        public IPEndPoint endPoint;
+        public static IPEndPoint endPoint;
 
         public static FileStream fs1;
 
-        public void SendFileInfo()
+        public static void SendFileInfo()
         {
 
            fileDet1.FILETYPE = fs1.Name.Substring((int)fs1.Name.Length - 3, 3);
@@ -113,7 +109,7 @@ namespace UDP
         }
 
 
-        public void SendFile()
+        public static void SendFile()
         {
             Byte[] bytes = new Byte[fs1.Length];
             fs1.Read(bytes, 0, bytes.Length);
