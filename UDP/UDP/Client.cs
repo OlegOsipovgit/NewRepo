@@ -20,7 +20,7 @@ namespace UDP
 
         public static ReceiveFileDetails fileDet;
 
-        public static int localPort = 5002;
+        public static int localPort = 9102;
         public static UdpClient receivingUdpClient = new UdpClient(localPort);
         public static IPEndPoint RemoteIpEndPoint = null;
 
