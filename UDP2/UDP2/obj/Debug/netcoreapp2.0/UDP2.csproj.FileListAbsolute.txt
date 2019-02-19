@@ -1,0 +1,11 @@
+C:\Users\Ольга\source\repos\UDP2\UDP2\bin\Debug\netcoreapp2.0\UDP2.deps.json
+C:\Users\Ольга\source\repos\UDP2\UDP2\bin\Debug\netcoreapp2.0\UDP2.runtimeconfig.json
+C:\Users\Ольга\source\repos\UDP2\UDP2\bin\Debug\netcoreapp2.0\UDP2.runtimeconfig.dev.json
+C:\Users\Ольга\source\repos\UDP2\UDP2\bin\Debug\netcoreapp2.0\UDP2.dll
+C:\Users\Ольга\source\repos\UDP2\UDP2\bin\Debug\netcoreapp2.0\UDP2.pdb
+C:\Users\Ольга\source\repos\UDP2\UDP2\obj\Debug\netcoreapp2.0\UDP2.csprojResolveAssemblyReference.cache
+C:\Users\Ольга\source\repos\UDP2\UDP2\obj\Debug\netcoreapp2.0\UDP2.csproj.CoreCompileInputs.cache
+C:\Users\Ольга\source\repos\UDP2\UDP2\obj\Debug\netcoreapp2.0\UDP2.AssemblyInfoInputs.cache
+C:\Users\Ольга\source\repos\UDP2\UDP2\obj\Debug\netcoreapp2.0\UDP2.AssemblyInfo.cs
+C:\Users\Ольга\source\repos\UDP2\UDP2\obj\Debug\netcoreapp2.0\UDP2.dll
+C:\Users\Ольга\source\repos\UDP2\UDP2\obj\Debug\netcoreapp2.0\UDP2.pdb
